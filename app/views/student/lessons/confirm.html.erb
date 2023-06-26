@@ -1,0 +1,22 @@
+<div class="container text-center">
+  <h2 class="mb-5">申込み情報確認</h2>
+
+  <div class="row mb-5">
+    <table align="left" class="table">
+      <tr><th>名前　：</th><td><%= @post.name %>先生</td></tr>
+      <tr><th>説明文　：</th><td><%= @post.introduction %></td></tr>
+      <tr><th>参加日程　：</th><td><%= params[:lesson][:lesson_date].to_datetime.strftime("%Y/%m/%d %H:%M") %></td></tr>
+    </table>
+  </div><br>
+
+
+  <%= form_with model: @post, local: true, url: student_lessons_path, method: :post do |f| %>
+      <div class="text-center">
+        <%= f.submit "申込みを確定する", class: "btn btn-success" %>
+          <%= f.hidden_field :post_id, value: @post.id %>
+          <%= f.hidden_field :lesson_date, value: params[:lesson][:lesson_date]  %>
+      </div>
+  <% end %>
+
+</div>
+

@@ -1,0 +1,17 @@
+<div class="container text-center">
+  <h2>申込み情報入力</h2><br>
+  <h6>※参加可能な日程を選択してください。</h6><br>
+  <%= form_with model: @lesson, local: true, url: student_confirm_path(@post), method: :get do |f| %>
+
+    <div class="check_box mb-5">
+      日程一覧：
+      <%= f.select :lesson_date,
+      [@post.lesson_1.strftime("%Y/%m/%d %H:%M"),@post.lesson_2.strftime("%Y/%m/%d %H:%M"),@post.lesson_3.strftime("%Y/%m/%d %H:%M"),
+      @post.lesson_4.strftime("%Y/%m/%d %H:%M"),@post.lesson_5.strftime("%Y/%m/%d %H:%M")] %>
+    </div>
+
+    <div><%= f.submit "確認画面へ進む", class: "btn btn-primary" %></div>
+
+    </div>
+  <% end %>
+  </div>

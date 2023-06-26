@@ -1,0 +1,22 @@
+<div class="container">
+  <h4 class="text-center mb-5">お気に入り一覧</h4>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="table-active" style="width:10%">名前</th>
+          <th class="table-active" style="width:10%"></th>
+        </tr>
+      </thead>
+
+    <% @favorite.each do |favorite| %>
+      <tbody>
+        <tr>
+          <th><%= favorite.post.name %></th>
+          <th><%= link_to "詳細へ", student_post_path(favorite.post_id), class: "btn btn-primary" %></th>
+        </tr>
+      </tbody>
+    <% end %>
+
+    </table>
+</div>

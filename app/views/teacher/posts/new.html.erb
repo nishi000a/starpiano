@@ -1,0 +1,51 @@
+<div class="container">
+  <h2 class="text-center">情報新規登録</h2></br>
+
+    <div class="text-center">
+      <%= form_with model: @post,url: teacher_posts_path,method: :post do |f| %>
+
+          <div class="row mb-3">
+            <div class="col-sm-3 px-sm-0 offset-sm-1"><%= f.label :画像 %></div>
+            <div class="col-sm-3 px-sm-0"><%= f.file_field :profile_image, accept: "image/*" ,class: "btn btn-light" %></div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-sm-3 px-sm-0 offset-sm-1"><%= f.label :名前 %></div>
+              <div class="col-sm-3 px-sm-0"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-sm-3 px-sm-0 offset-sm-1"><%= f.label :説明文 %></div>
+              <div class="col-sm-3 px-sm-0"><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %></div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-sm-3 px-sm-0 offset-sm-1"><%= f.label :募集ステータス %></div>
+              <div class="col-sm-3 px-sm-0 "><%= f.select :is_active, ["募集中", "募集停止中"] ,class: "btn btn-primary col"%></div>
+          </div>
+
+          <div class="col-sm-3 px-sm-0 offset-sm-1"><%= f.label :体験申込み候補日 %></div>
+
+            <div><%= f.label :日程1 %></div><br>
+            <div><%= f.datetime_field :lesson_1 %></div><br>
+
+            <div><%= f.label :日程2 %></div><br>
+            <div><%= f.datetime_field :lesson_2 %></div><br>
+
+            <div><%= f.label :日程3 %></div><br>
+            <div><%= f.datetime_field :lesson_3 %></div><br>
+
+            <div><%= f.label :日程4 %></div><br>
+            <div><%= f.datetime_field :lesson_4 %></div><br>
+
+            <div><%= f.label :日程5 %></div><br>
+            <div><%= f.datetime_field :lesson_5 %></div><br>
+
+
+          <div class="row mt-5">
+            <div class="col-sm-3 offset-sm-4"><%= f.submit "登録" ,class: "btn btn-primary col"%></div>
+          </div>
+      <% end %>
+    </div>
+
+</div>

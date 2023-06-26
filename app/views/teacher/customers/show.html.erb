@@ -1,0 +1,55 @@
+<div class="container">
+
+  <h2 class= "text-center">マイページ</h2>
+
+    <div style="margin-top: 30px;">
+      <div class="row">
+          <h3><b>登録情報</b></h3>&emsp;
+          <p><%= link_to "編集する", edit_teacher_customers_path, class: "btn btn-success"%></p>
+      </div>
+
+      <table class="table table-bordered text-left">
+        <thead>
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">氏名</th>
+                <td><%= @teacher.last_name %>&ensp;<%= @teacher.first_name %></td>
+            </tr>
+
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">カナ</th>
+                <td><%= @teacher.last_name_kana %>&ensp;<%= @teacher.first_name_kana %></td>
+            </tr>
+
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">郵便番号</th>
+                <td><%= @teacher.postal_code %></td>
+            </tr>
+
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">住所</th>
+                <td><%= @teacher.address %></td>
+            </tr>
+
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">電話番号</th>
+                <td><%= @teacher.telephone_number %></td>
+            </tr>
+
+            <tr>
+                <th style="width:150px;background-color: #EEEEEE;">メールアドレス</th>
+                <td><%= @teacher.email %></td>
+            </tr>
+        </thead>
+      </table>
+    </div>
+
+    <h3 class= "text-center mt-5">DM一覧</h3>&emsp;
+    <% @entries.each do |entry| %>
+      <table class="table text-left">
+        <tr>
+          <td><%= link_to "#{entry.student.last_name} #{entry.student.first_name}さんとのDM画面へ", teacher_room_path(entry.room_id) %></td>
+        </tr>
+      </table>
+     <% end %>
+
+</div>

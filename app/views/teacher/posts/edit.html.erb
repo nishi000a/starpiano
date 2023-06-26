@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="text-center mb-2">情報編集画面</h2>
+
+      <%= form_with model: @post, url: teacher_post_path(@post.id), method: :patch do |f| %>
+        <div class="text-center">
+           <div class="row mb-3">
+            <%= f.label :画像, class:"col-md-2 offset-md-1" %>
+            <%= f.file_field :profile_image, accept: "image/*" ,class:"btn btn-light" %>
+          </div>
+
+           <div class="row mb-3">
+            <%= f.label :名前, class:"col-md-2 offset-md-1" %>
+            <%= f.text_area :name, autofocus: true, autocomplete: "introduction", class:"col-md-2 form-control" %>
+          </div>
+
+           <div class="row mb-3">
+            <%= f.label :説明文, class:"col-md-2 offset-md-1" %>
+            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class:"col-md-2 form-control" %>
+          </div>
+
+          <div class="row mb-5">
+            <%= f.label :ステータス, class:"col-md-2 offset-md-1" %>
+              <%= f.radio_button :is_active, true, checked: true %>
+              <%= f.label :sales_status, "募集中 " %>&ensp;
+
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :sales_status, "募集停止中" %>
+          </div>
+
+          <div class="row mb-3"><%= f.label :体験申込み候補日, class:"col-md-2 offset-md-1" %></div>
+          <div class="row mb-1"><%= f.label :日程１, class:"col-md-6" %><%= f.datetime_field :lesson_1, class:"col-md-2 form-control" %></div></br>
+          <div class="row mb-1"><%= f.label :日程２, class:"col-md-6" %><%= f.datetime_field :lesson_2 %></div><br>
+          <div class="row mb-1"><%= f.label :日程３, class:"col-md-6" %><%= f.datetime_field :lesson_3 %></div><br>
+          <div class="row mb-1"><%= f.label :日程４, class:"col-md-6" %><%= f.datetime_field :lesson_4 %></div><br>
+          <div class="row mb-1"><%= f.label :日程５, class:"col-md-6" %><%= f.datetime_field :lesson_5 %></div><br>
+
+          <%= f.submit :保存, class: "btn btn-success col" %>
+        <div>
+      <% end %>
+</div>

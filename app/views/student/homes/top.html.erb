@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-8 p-0 mx-auto shadow main-visual text-center">ようこそ、star pianoへ！</div>
+  </div>
+
+  <h2 class="text-center mb-5">新着投稿一覧</h2><br>
+
+  <div class="row">
+      <% @posts.each do |post| %>
+        <div class="box text-center">
+　　　　　　　<p>
+　　　　　　　  <%= link_to student_post_path(post.id) do %>
+              <% if post.profile_image.attached? %>
+                  <%= image_tag post.profile_image, size: "200x200" %>
+              <% else %>
+                  <%= image_tag 'no_image', size: "200x200" %>
+              <% end %>
+            <% end %>
+          </p>
+          <p><%= post.name %></p>
+          <p><%= post.introduction %></p>
+        </div>
+      <% end %>
+  </div>
+
+        <div class="col-xs-2"><p><%= link_to "全ての投稿を見る＞", student_posts_path %></p></div><br>
+    </div>
+</div>

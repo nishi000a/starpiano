@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="text-center mb-5">プロフィール</h2>
+
+  <div class="row">
+　　<div class="col-4">
+      <p><%= image_tag @post.profile_image, size: "200x200" %><p>
+　　</div>
+
+    <div class="col-6">
+      <table class="table table-bordered text-left">
+        <thead>
+          <tr><th style="width:150px;background-color: #EEEEEE;">名前</th><td style="width:400px"><%= @post.name %></td></tr>
+          <tr><th style="width:150px;background-color: #EEEEEE;">説明文</th><td style="width:400px"><%= @post.introduction %></td></tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="row">
+      <p><%= link_to "体験申し込みはこちら！", new_student_lesson_path(post_id: @post.id), class: "btn btn-success" %></p>&emsp;
+      <p><%= link_to "DMを送る", student_rooms_path(teacher_id: params[:id]), class: "btn btn-info", method: :post %></p>&emsp;
+
+  <!--いいね機能-->
+      <p>
+        <% if @post.favorited_by?(current_student) %>
+          <p>
+            <%= link_to student_post_favorites_path(@post), method: :delete, class: "btn btn-warning col" do %>
+              ♥<%= @post.favorites.count %> いいねを外す
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to student_post_favorites_path(@post), method: :post, class: "btn btn-info col" do %>
+              ♡<%= @post.favorites.count %> いいねする
+            <% end %>
+          </p>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

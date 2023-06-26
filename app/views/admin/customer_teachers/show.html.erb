@@ -1,0 +1,48 @@
+<div class="container text-center">
+  <h2><%= @teacher.last_name %><%= @teacher.first_name %>さんの会員詳細</h2><br>
+
+  <table class="table">
+	  <tr>
+      <th>顧客ID</th>
+      <td><%= @teacher.id %>
+      <% if @teacher.is_deleted == "有効" %>
+          <div class="label label-primary">有効会員</div>
+      <% else %>
+          <div class="label label-danger">退会済み</div>
+      <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>氏名</th>
+      <td><%= @teacher.last_name %><%= @teacher.first_name %></td>
+    </tr>
+
+    <tr>
+      <th>フリガナ</th>
+      <td><%= @teacher.last_name_kana %><%= @teacher.first_name_kana %></td>
+    </tr>
+
+    <tr>
+      <th>郵便番号</th>
+      <td><%= @teacher.postal_code %></td>
+    </tr>
+
+    <tr>
+      <th>住所</th>
+      <td><%= @teacher.address %></td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td><%= @teacher.telephone_number %></td>
+    </tr>
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @teacher.email %></td>
+    </tr>
+  </table>
+
+    <%= link_to "編集する", edit_admin_customer_teacher_path(@teacher), class:"btn btn-primary" %>
+</div>

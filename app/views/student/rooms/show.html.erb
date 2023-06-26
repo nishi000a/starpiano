@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+      <% @room.messages.each do |m| %>
+      
+        <% if m.teacher_flg %>
+          <strong><%= "#{m.teacher.first_name} #{m.teacher.last_name}" %>先生</strong>
+          <strong class="text-black-50"><%= m.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %></strong>
+          <div><small><%= m.body %></small></div>
+          <hr>
+          
+        <% else %>
+          <strong><%= "#{m.student.first_name} #{m.student.last_name}" %>さん</strong>
+          <strong class="text-black-50"><%= m.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %></strong>
+          <div><small><%= m.body %></small></div>
+          <hr>
+        <% end %>
+      <% end %>
+
+      <%= form_with model: @message, url: student_messages_path do |f| %>
+        <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , class: 'form-control' %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <%= f.hidden_field :teacher_id, :value => @entry.teacher_id %>
+        <br>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>
+  </div>
+</div>

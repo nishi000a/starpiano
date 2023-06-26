@@ -1,0 +1,25 @@
+<div class="container text-center">
+  <h2 class="mb-5">申し込み一覧</h2>
+
+  <div class="col-xs-10">
+    <table class="table table-hover">
+      <thead>
+        <tr style="width:150px;background-color: #EEEEEE;">
+          <th>名前</th>
+          <th>説明文</th>
+          <th>申込み予約日</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <% @lessons.each do |lesson| %>
+        <tr>
+          <td><%= lesson.post.name %> 先生</td>
+          <td><%= lesson.post.introduction %></td>
+          <td><%= lesson.lesson_date.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container text-center">
+  <h2 class="mb-5"><%= @teacher.last_name %>&nbsp;<%= @teacher.first_name %>さんの会員情報編集</h2>
+
+
+    <%= form_with model: @teacher, url: admin_customer_teacher_path do |f| %>
+      <div class="row mb-3">
+        <div class="col-md-3 px-sm-0 offset-md-1"><%= f.label :会員ＩＤ %></div>
+        <div class="col-md-3 px-sm-0"><%= f.text_field :id, autofocus: true, autocomplete: "id", class:"form-control" %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :氏名 %></div>
+        <div class="col-md-3 px-md-0"><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control" %></div>&emsp;
+        <div class="col-md-3 px-md-0"><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:"form-control" %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :フリガナ %></div>
+        <div class="col-md-3 px-md-0"><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class:"form-control" %></div>&emsp;
+        <div class="col-md-3 px-md-0"><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class:"form-control" %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :郵便番号 %></div>
+        <div class="col-md-3 px-sm-0"><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class:"form-control" %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :住所 %></div>
+        <div class="col-md-3 px-sm-0"><%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control" %></div>
+      </div>
+
+
+      <div class="row mb-3">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :電話番号 %></div>
+        <div class="col-md-3 px-sm-0"><%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", class:"form-control" %></div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-md-3 px-md-0 offset-md-1"><%= f.label :メールアドレス %></div>
+        <div class="col-md-3 px-sm-0"><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></div>
+      </div>
+
+
+      <div class="row mb-5">
+        <label  class="col-md-3 offset-md-3"><%= f.radio_button :is_deleted, "有効" ,checked: "checked" %>有効会員</label>
+        <label  class="col-md-3"><%= f.radio_button :is_deleted, "無効" %>退会済</label>
+      </div>
+
+     <div class="row mb-5">
+       <div class="col-md-3 offset-md-4"><%= f.submit "変更を保存する", class:"btn btn-primary" %></div>
+      </div>
+
+    <% end %>
+</div>
