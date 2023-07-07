@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root :to => 'homes#top'
+
 # 管理者
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
@@ -18,9 +20,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :student do
-    post 'student/guest_sign_in' => 'student/sessions#new_guest'
+    post 'student/guest_sign_in' => 'student/sessions#guest_sign_in'
   end
-  
+
 
   namespace :teacher do
 # トップページ
@@ -34,11 +36,11 @@ Rails.application.routes.draw do
 
 # いいね機能
     resource :favorites, only: [:create, :destroy]
-    
+
 # DM機能
     resources :messages, :only => [:create]
     resources :rooms, :only => [:show]
-    
+
 # 申込み画面
     resources :lessons, only: [:index, :show, :update]
   end
@@ -65,7 +67,7 @@ Rails.application.routes.draw do
     get  '/lessons/complete'=>'lessons#complete', as: :complete
     resources :lessons, only:[:new,:create,:index,:show]
   end
-  
+
 
   namespace :admin do
     root to: 'homes#top'

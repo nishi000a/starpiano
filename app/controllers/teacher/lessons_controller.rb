@@ -1,9 +1,14 @@
 class Teacher::LessonsController < ApplicationController
+  before_action :authenticate_teacher!
+
+
   def index
-    @lessons = Lesson.page(params[:page]).per(8)
+    @lessons = Lesson.where(post_id: current_teacher.id).page(params[:page]).per(8)
+
   end
 
   def show
+    @lessons = Lesson.where(id: params[:id])
   end
 
   def lesson_params

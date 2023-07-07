@@ -28,6 +28,7 @@
 
         <!--ログインしていない状態 -->
           <% else %>
+            <li><%= link_to root_path, class: "btn btn-outline-secondary" do %>ホーム<% end %></li>&emsp;
             <li><%= link_to new_student_session_path, class: "btn btn-outline-secondary" do %>生徒としてログイン<% end %></li>&emsp;
             <li><%= link_to new_teacher_session_path, class: "btn btn-outline-secondary" do %>先生としてログイン<% end %></li>&emsp;
             <li><%= link_to new_admin_session_path, class: "btn btn-outline-secondary" do %>管理者としてログイン<% end %></li>

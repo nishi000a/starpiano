@@ -5,7 +5,7 @@
         <%= @student.errors.size %>件のエラーが発生しました
         <ul>
           <% @student.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class ="alart alart-danger"><%= message %></li>
           <% end %>
         </ul>
       <% end %>

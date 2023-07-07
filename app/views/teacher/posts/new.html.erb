@@ -1,7 +1,6 @@
-<div class="container">
-  <h2 class="text-center">情報新規登録</h2></br>
+<div class="container text-center">
+  <h2>情報新規登録</h2></br>
 
-    <div class="text-center">
       <%= form_with model: @post,url: teacher_posts_path,method: :post do |f| %>
 
           <div class="row mb-3">
@@ -43,9 +42,8 @@
 
 
           <div class="row mt-5">
-            <div class="col-sm-3 offset-sm-4"><%= f.submit "登録" ,class: "btn btn-primary col"%></div>
+            <div class="col-sm-3 offset-sm-4"><%= f.submit "登録" , class: "btn btn-primary col "%></div>
           </div>
       <% end %>
-    </div>
 
 </div>

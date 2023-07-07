@@ -20,11 +20,12 @@ class Student::SessionsController < Devise::SessionsController
   # end
 
 # ゲストログイン
-  # def guest_sign_in
-  #   student = Student.guest
-  #   sign_in student
-  #   redirect_to student_root_path, notice: 'ゲストユーザーとしてログインしました。'
-  # end
+  def guest_sign_in
+    student = Student.guest
+    sign_in student
+    redirect_to student_root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
 
 
   # protected

@@ -1,2 +1,24 @@
-<h1>Teacher::Lessons#show</h1>
-<p>Find me in app/views/teacher/lessons/show.html.erb</p>
+<div class="container text-center">
+  <h2 class="mb-5">生徒情報</h2>
+
+    <table class="table table-hover">
+      <thead>
+        <tr style="width:150px;background-color: #EEEEEE;">
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>申込み予約日</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <% @lessons.each do |lesson| %>
+        <tr>
+          <td><%= lesson.student.last_name %>　<%= lesson.student.first_name %>さん</td>
+          <td><%= lesson.student.email %></td>
+          <td><%= lesson.lesson_date.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

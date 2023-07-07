@@ -4,7 +4,14 @@
     <div>
       <div class="row">
           <h3><b>登録情報</b></h3>&emsp;
-          <p><%= link_to "編集する", edit_student_customers_path, class: "btn btn-success"%></p>
+
+          <p>
+            <% if @student.email == 'guest@example.com'%>
+              <p class="mt-1">※ゲストユーザーはユーザー情報の編集ができません。</p>
+            <% else %>
+              <%= link_to "編集する", edit_student_customers_path, class: "btn btn-success" %>
+            <% end %>
+          </p>
       </div>
 
       <table class="table table-bordered text-left">

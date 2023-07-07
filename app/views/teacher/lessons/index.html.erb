@@ -1,4 +1,4 @@
-
+<div class="container">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -13,14 +13,12 @@
           <td><%= lesson.student.first_name %>&ensp;<%= lesson.student.last_name %>（<%= lesson.student.first_name_kana %>&ensp;<%= lesson.student.last_name_kana %>）様</td>
 
           <td><%= lesson.lesson_date.strftime("%Y/%m/%d %H:%M") %></td>
-          <td><%= link_to "詳細へ", student_lesson_path(lesson.id), class: "btn btn-info" %></td>
+          <td><%= link_to "詳細へ", teacher_lesson_path(lesson.id), class: "btn btn-info" %></td>
         </tr>
         <% end %>
       </body>
-
-
     </table>
-
+<div>
 
 
 

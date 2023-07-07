@@ -1,4 +1,12 @@
 class ApplicationController < ActionController::Base
+  # if student_signed_in?
+  #   before_action :authenticate_student!, except: [:top]
+  # elsif teacher_signed_in?
+  #   before_action :authenticate_teacher!, except: [:top]
+  # elsif admin_signed_in?
+  #   before_action :authenticate_admin!, except: [:top]
+  # end
+
 
   def after_sign_in_path_for(resource)
     case resource

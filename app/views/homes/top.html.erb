@@ -1,0 +1,13 @@
+<div class="container text-center">
+
+    <p class="mb-5">
+    ようこそスターピアノへ！<br><br>
+    まずはログインしてみましょう。
+    </p><br>
+
+  <div class="mx-auto">
+      <%= link_to new_student_session_path, class: "btn btn-info" do %>生徒としてログイン<% end %>&emsp;
+      <%= link_to new_teacher_session_path, class: "btn btn-info" do %>先生としてログイン<% end %>&emsp;
+      <%= link_to new_admin_session_path, class: "btn btn-info" do %>管理者としてログイン<% end %>
+  </div>
+<div>

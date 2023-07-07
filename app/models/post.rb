@@ -2,7 +2,6 @@ class Post < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   belongs_to :teacher
-  belongs_to :lesson
 
   has_one_attached :profile_image
 

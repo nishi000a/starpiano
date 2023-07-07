@@ -46,11 +46,11 @@ class Student::RegistrationsController < Devise::RegistrationsController
     keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :password, :password_confirmation])
   end
 
-  
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
-  
+
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
     keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :password, :password_confirmation])

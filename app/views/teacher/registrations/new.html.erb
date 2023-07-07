@@ -1,11 +1,16 @@
-<div class="container mb-5">
-  <h2 style="width:250px;background-color: #EEEEEE; text-align: center;">新規会員登録</h2><br>
+<div class="container">
 
+  <div class="row text-center mb-5">
+    <div class="col">
+      <h2>新規会員登録</h2>
+    </div>
+  </div><br>
+
+  <div>
     <%= form_with(model: resource, url: teacher_registration_path) do |f| %>
-
       <%= render "teacher/shared/error_messages", resource: resource %>
 
-      <div class="row"  style="margin-top: 10px;">
+      <div class="row "  style="margin-top: 10px;">
         <div class="col-2 offset-md-1"><%= f.label "名前" %></div>
         <div class="col-1 text-right pr-0"><%= f.label "(姓)" %></div>
         <div class="col-1"><%= f.text_field :last_name, :size => "15", placeholder: "令和" %></div>&emsp;
@@ -23,44 +28,44 @@
 
       <div class="row">
         <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
-        <div class="col-3"><%= f.email_field :email, autofocus: true, :size => "40", placeholder: "sample@example.com" %></div>
+        <div class="col-3"><%= f.email_field :email, autofocus: true, :size => "42", placeholder: "sample@example.com" %></div>
       </div><br>
 
       <div class="row">
         <div class="col-3 offset-md-1"><%= f.label "郵便番号(ハイフンなし)" %></div>
-        <div class="col-3"><%= f.text_field :postal_code, autofocus: true, :size => "15", placeholder: "0000000" %></div>
+        <div class="col-3"><%= f.text_field :postal_code, autofocus: true, :size => "42", placeholder: "0000000" %></div>
       </div><br>
 
       <div class="row">
         <div class="col-3 offset-md-1"><%= f.label "住所" %></div>
-        <div class="col-3"><%= f.text_field :address, autofocus: true, :size => "40", placeholder: "東京都渋谷区代々木神園町0-0" %></div>
+        <div class="col-3"><%= f.text_field :address, autofocus: true, :size => "42", placeholder: "東京都渋谷区代々木神園町0-0" %></div>
       </div><br>
 
       <div class="row">
         <div class="col-3 offset-md-1"><%= f.label "電話番号(ハイフンなし)" %></div>
-        <div class="col-3"><%= f.text_field :telephone_number, :size => "15", autofocus: true, placeholder: "00000000000" %></div>
+        <div class="col-3"><%= f.text_field :telephone_number, :size => "42", autofocus: true, placeholder: "00000000000" %></div>
       </div><br>
 
       <div class="row">
         <div class="col-3 offset-md-1">
           <% if @minimum_password_length %><%= f.label "パスワード(#{@minimum_password_length}文字以上)" %><% end %>
         </div>
-        <div class="col-3"><%= f.password_field :password, :size => "15" %></div>
+        <div class="col-3"><%= f.password_field :password, :size => "42" %></div>
       </div><br>
 
       <div class="row">
         <div class="col-3 offset-md-1"><%= f.label "パスワード(確認用)" %></div>
-        <div class="col-3"><%= f.password_field :password_confirmation, :size => "15" %></div>
-      </div><br>
+        <div class="col-3"><%= f.password_field :password_confirmation, :size => "42" %></div>
+      </div>
+
 
       <div class="row">
-        <div class="col-2 offset-md-4 mt-3 mb-5"><%= f.submit "新規登録", class:"col btn btn-success" %></div>
+        <div class="col-2 offset-md-4 mt-3 mb-2"><%= f.submit "新規登録", class:"col btn btn-success" %></div>
       </div><br>
+    <% end %><br>
+  </div><br>
 
-    <% end %>
-
-      <div class="text-left">
-        <h4 style="width: 180px;background-color: #EEEEEE; text-align: center;">既に登録済の方</h4>
-        <%= link_to "こちら", new_session_path(resource_name), class:"font-weight-bold" %><span>からログインしてください。</span><br><br><br>
-      </div>
+  <div class="text-center">
+    <h5>※既に登録済の方は<%= link_to "こちら", new_session_path(resource_name), class:"font-weight-bold" %>からログインしてください。</h5><br><br><br>
+  </div>
 </div>

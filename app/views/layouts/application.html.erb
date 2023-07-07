@@ -4,10 +4,10 @@
     <title>Starpiano</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%# レスポンシブ対応 %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,11 +16,20 @@
     <%# ヘッダー %>
     <%= render partial: 'layouts/header' %>
 
+    <% if flash[:notice].present? %>
     <div class="container">
       <div class="row">
-        <h4 class="col p-0 alert alert-warning p-0 border-0" role="alert"><%= flash[:notice] %></h4>
+        <h4 class="col alert-success" style="text-align:center"><%= flash[:notice] %></h4>
       </div>
     </div>
+    <% elsif flash[:alert].present? %>
+    <div class="container">
+      <div class="row">
+        <h4 class="col p-0 alert-danger p-0 border-0" role="alert"  style="text-align:center"><%= flash[:alert] %></h4>
+      </div>
+    </div>
+
+    <% end %>
 
     <%# メイン %>
     <%= yield %>
