@@ -6,6 +6,7 @@ class Student::PostsController < ApplicationController
   end
 
   def show
+    @student = current_student
     @post = Post.find(params[:id])
   end
 

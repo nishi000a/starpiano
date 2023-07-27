@@ -15,26 +15,47 @@
       </table>
     </div>
 
-    <div class="row">
-      <p><%= link_to "体験申し込みはこちら！", new_student_lesson_path(post_id: @post.id), class: "btn btn-success" %></p>&emsp;
-      <p><%= link_to "DMを送る", student_rooms_path(teacher_id: params[:id]), class: "btn btn-info", method: :post %></p>&emsp;
+    <div class="mx-auto">
+    <!--申込み機能-->
+      <p>
+        <% if @student.email == 'guest@example.com'%>
+          <p class="mt-1">※ゲストユーザーの為、新規申し込みはできません。</p>
+        <% else %>
+          <%= link_to "体験申し込みはこちら！", new_student_lesson_path(post_id: @post.id), class: "btn btn-success col" %>
+        <% end %>
+      </p></br>
+
+  <!--DM機能-->
+      <p>
+        <% if @student.email == 'guest@example.com'%>
+          <p class="mt-1">※ゲストユーザーの為、DMはできません。</p>
+        <% else %>
+        <%= link_to "DMを送る", student_rooms_path(teacher_id: params[:id]), class: "btn btn-info col", method: :post %>
+        <% end %>
+      </p></br>
 
   <!--いいね機能-->
       <p>
-        <% if @post.favorited_by?(current_student) %>
-          <p>
-            <%= link_to student_post_favorites_path(@post), method: :delete, class: "btn btn-warning col" do %>
-              ♥<%= @post.favorites.count %> いいねを外す
+        <% if @student.email == 'guest@example.com'%>
+          <p class="mt-1">※ゲストユーザーの為、いいねはできません。</p>
+        <% else %>
+
+            <% if @post.favorited_by?(current_student) %>
+              <p>
+                <%= link_to student_post_favorites_path(@post), method: :delete, class: "btn btn-warning col" do %>
+                  ♥<%= @post.favorites.count %> いいねを外す
+                <% end %>
+              </p>
+              <% else %>
+              <p>
+                <%= link_to student_post_favorites_path(@post), method: :post, class: "btn btn-info col" do %>
+                  ♡<%= @post.favorites.count %> いいねする
+                <% end %>
+              </p>
             <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to student_post_favorites_path(@post), method: :post, class: "btn btn-info col" do %>
-              ♡<%= @post.favorites.count %> いいねする
-            <% end %>
-          </p>
         <% end %>
       </p>
     </div>
+
   </div>
 </div>
