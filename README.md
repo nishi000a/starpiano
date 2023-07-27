@@ -60,7 +60,6 @@
 
 
 使用素材
-  ・ロゴの作成
-    https://ja.wix.com/logo/maker
+  ・ロゴの作成(https://ja.wix.com/logo/maker)
 
 実装機能リストのURL
